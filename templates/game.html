@@ -8,17 +8,17 @@
 <body>
   <table>
       {% for step in steps %}
-      <tr>
-        {% for i in range(20) %}
-        <td>Step {{step[0]}}:</td>
-        <td> {{step[1]}} ({{step[2]}})</td>
-      </tr>
+        <tr>
+            <td>Step {{ step[0] }}:</td>
+          <td> {{ step[1] }} ({{ step[2] }})</td>
+        </tr>
       {% endfor %}
-      <tr>
-      </tr>
   </table>
-  Next step: <label>
-      <textarea style="max-height: 10px"></textarea>
-  </label>
+  <form action="/make_step" method="post">
+        Next step: <label>
+            <textarea name="next_step" style="max-height: 100px"></textarea>
+        </label>
+      <button type="submit">submit</button>
+  </form>
 </body>
 </html>
