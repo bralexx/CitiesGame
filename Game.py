@@ -17,7 +17,7 @@ class Game:
             self.player_info.update({player: [0, "in game"]})
         self.current_letter = start_letter
         self.current_player = 0
-        all_cities = json.load(open("config/world-cities_json.json", 'r'))
+        all_cities = json.load(open("cities/world-cities_json.json", 'r'))
         self.possible_dictionary = {}
         for city in all_cities:
             self.possible_dictionary.update({city['name']: city['country']})
