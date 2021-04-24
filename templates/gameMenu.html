@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creating new game</title>
+</head>
+<body>
+<form action="/create_new_game/{{num_of_players}}" , method="post">
+    Name: <textarea name="game_name" , style="max-height: 20px">Test</textarea>
+    <table>
+        {% for i in range(num_of_players) %}
+        <tr>
+            <td>
+                Player {{i + 1}} name <textarea name="name{{i}}" , style="max-height: 12px"></textarea>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    First letter: <textarea name="letter" , style="max-height: 20px">A</textarea>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
+</body>
+</html>
