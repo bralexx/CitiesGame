@@ -1,5 +1,6 @@
 import json
 import flask
+import os
 
 
 class Game:
@@ -73,6 +74,8 @@ class Game:
                      'current_letter': self.current_letter,
                      'current_player': self.current_player,
                      })
+        if not os.path.exists("games/"):
+            os.mkdir("games/")
         file = open("games/{}.json".format(self.name), 'w')
         data = json.dumps(data)
         file.write(data)

@@ -14,12 +14,13 @@ def render_manager():
 
 
 def load_games_info(path=os.getcwd() + "/games"):
-    for file in os.listdir(path=path):
-        try:
-            game_config = json.load(open("games/" + file, 'r'))
-            game_list.append([game_config['name'], game_config['status'], game_config['player_info'], "games/" + file])
-        except (Exception):
-            continue
+    if os.path.exists(path):
+        for file in os.listdir(path=path):
+            try:
+                game_config = json.load(open("games/" + file, 'r'))
+                game_list.append([game_config['name'], game_config['status'], game_config['player_info'], "games/" + file])
+            except (Exception):
+                continue
 
 
 def load_game(game_number):
