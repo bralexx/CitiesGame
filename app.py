@@ -48,12 +48,14 @@ def delete_game(num_of_game):
 
 @app.route('/save_current_game')
 def save_current_game():
+    global current_game
     current_game.save_game()
     return current_game.render_game()
 
 
 @app.route('/save_exit_game')
 def save_exit_game():
+    global current_game
     current_game.save_game()
     return GameManager.render_manager()
 
@@ -71,4 +73,14 @@ def make_step():
     return current_game.render_game()
 
 
-app.run()
+@app.route('/get_json', methods=['GET'])
+def get_json():
+    data = {}
+    data.update({'currentGame':current_game.name,
+                'currentGameStatus':current_game.status,
+                 'numberOfGames':len(GameManager.game_list)
+                 })
+    data = json.dumps(data)
+    file = open("test.json", 'w')
+    file.write(data)
+    return data
