@@ -14,6 +14,8 @@ def render_manager():
 
 
 def load_games_info(path=os.getcwd() + "/games"):
+    global game_list
+    game_list = []
     if os.path.exists(path):
         for file in os.listdir(path=path):
             try:
@@ -40,3 +42,4 @@ def get_game(num_of_game):
 
 def delete_game(num_of_game):
     os.remove(game_list[num_of_game][3])
+    load_games_info()
