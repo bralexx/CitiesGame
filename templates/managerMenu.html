@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All games</title>
+</head>
+<body>
+<form action='/open_game_menu' , method="post">
+    Create new game for
+    <select name='num_of_players'>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+        <option value=10>10</option>
+    </select>
+    players
+    <button type="submit">Create</button>
+</form>
+<table>
+    {% for game in game_list %}
+    <form action="/continue_game/{{game[0]}}">
+        <tr>
+            <td>{{ game[0] + 1}}: Name: {{game[1][0]}}, status: {{game[1][1]}}</td>
+        </tr>
+        <tr>
+            <td>
+                <button formaction="/delete_game/{{game[0]}}">Delete</button>
+                <button type="submit">Continue</button>
+            </td>
+        </tr>
+    </form>
+    {% endfor %}
+</table>
+</body>
+</html>
