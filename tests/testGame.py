@@ -1,6 +1,5 @@
 import unittest
 import GameManager
-import Game
 
 class TestGameManager(unittest.TestCase):
     def setUp(self):
@@ -24,5 +23,4 @@ class TestGameManager(unittest.TestCase):
         self.assertEqual(self.game.current_player, 1)
         self.assertEqual(len(self.game.step_list), 1)
 
-if __name__ == '__main__':
-    unittest.main()
+unittest.main()

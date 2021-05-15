@@ -1,6 +1,4 @@
-import json
 import unittest
-import requests
 import GameManager
 import Game
 
@@ -41,6 +39,4 @@ class TestGameManager(unittest.TestCase):
             GameManager.delete_game(0)
             self.assertEqual(prevSize - 1, len(GameManager.game_list))
 
-
-if __name__ == '__main__':
-    unittest.main()
+unittest.main()
