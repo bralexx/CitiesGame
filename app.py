@@ -84,3 +84,5 @@ def get_json():
     file = open("test.json", 'w')
     file.write(data)
     return data
+
+app.run()
